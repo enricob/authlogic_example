@@ -1,0 +1,131 @@
+Ruby/ActiveLdap -- ruby library for object-oriented LDAP interction
+Copyright (C) 2004-2006 Will Drewry <will@alum.bu.edu>, Kouhei Sutou <kou@cozmixng.org>
+Contributors:
+ * Dick Davies <rasputnik@hellooperator.net>
+ * Nathan Kinder <quicksilver02@mac.com>
+ * Patrick Cole <pac@independent.com.au>
+ * Google Inc.
+
+DESCRIPTION
+'Ruby/ActiveLdap' is a ruby extension library which provides a clean objected
+oriented interface to the Ruby/LDAP[0] library.  It was inspired by
+ActivRecord[3]. This is not nearly as clean or as flexible as ActiveRecord, but
+it is still trivial to define new objects and manipulate them with minimal
+difficulty.
+
+For example and usage - read the rdoc in doc/ from lib/activeldap.rb.
+It is also available on the web at:
+
+http://ruby-activeldap.rubyforge.org/
+
+PREREQUISITES
+
+  * Ruby 1.8.x [2]
+  * Ruby/LDAP [0] or Net::LDAP [1]
+  * ActiveRecord [3]
+  * An LDAP server compatible with Ruby/LDAP: OpenLDAP, etc
+
+
+NOTES
+
+  * Only GSSAPI SASL support exists due to Ruby/LDAP limitations
+
+
+INSTALL
+
+  - Edit active_ldap/configuration.rb with your LDAP preferences
+  - Run -
+    sudo rake install
+
+RAILS
+
+There is a small rails plugin included that allows the use of a file named
+'ldap.yml' in the config directory of your rails app. This file has a similar
+function to the 'database.yml' file that allows you to set your database
+connection settings per environment. Similarly, the ldap.yml file allows
+settings to be set for development, test, and production environments. For
+instance, the development entry would look something like the following:
+
+          development:
+            host: 127.0.0.1
+            port: 389
+            base: dc=localhost
+            bind_dn: cn=admin,dc=localhost
+            password: secret
+
+
+To install, simply copy the rails/plugin/active_ldap folder into the
+vendor/plugins directory of your rails application and create config/ldap.yml.
+When your application starts up, the plugin will call #establish_connection
+using the parameters specified for your current environment.
+
+
+LICENCE
+
+This program is free software; you can redistribute it and/or modify it.  It is
+dual licensed under Ruby's license and under the terms of the GNU General
+Public License as published by the Free Software Foundation; either version 2,
+or (at your option) any later version.
+
+Please see the file LICENSE for the terms of the licence.
+
+
+REFERENCES
+
+[0] - http://ruby-ldap.sourceforge.net
+[1] - http://rubyforge.org/projects/net-ldap/
+[2] - http://www.ruby-lang.org
+[3] - http://activerecord.rubyonrails.org
+
+
+THANKS
+
+This list may not be correct. If you notice mistakes of this
+list, please point out.
+
+* Nobody: Bug reports and API improveent ideas.
+* James Hughes: Bug reports and advices and documentations.
+* Buzz Chopra: Documentations.
+* Christoph Lipp: Bug reports.
+* Jeff Hall: Bug reports.
+* Ernie Miller: Bug reports and advices.
+* Daniel Pfile: Patches.
+* Jacob Wilkins: Bug reports.
+* Ace Suares:
+  * Bug reports.
+  * Nederlands translations.
+* Iain Pople: Bug reports and API improvement ideas.
+* Christoph Lipp: Tell us character escape syntax.
+* Kevin McCarthy: Patches.
+* Perry Smith: Patches, bug reports and indications.
+* Marc Dequènes: API suggestions.
+* Jeremy Pruitt: Bug reports.
+* Bodaniel Jeanes:
+  * A suggestion for behavior on simple bind with empty password.
+  * Bug reports.
+* Naoto Morishima: Bug reports.
+* David Morton:
+  * An API improvement idea.
+  * Bug reports.
+* Lennon Day-Reynolds: Bug reports.
+* Tilo: A bug report.
+* Matt Mencel: A bug report.
+* CultureSpy: A bug report.
+* gwarf12: A bug report.
+* Baptiste Grenier: API improvement ideas.
+* Richard 3 Nicholas: API improvement ideas.
+* Kazuhiro NISHIYAMA: A bug report.
+* Grzegorz Marszałek: A bug report.
+* しまさわらさん: A suggesetion.
+* Ted Lepich: A suggestion.
+* danger1986: A suggestion.
+* michael.j.konopka: Bug reports.
+* ingersoll: A suggestion.
+* Alexey.Chebotar: Bug reports.
+* ery.lee: A bug report.
+* id:dicdak: A bug report.
+* Raiko Mitsu: A bug report.
+* Kazuaki Takase: Documents in Japanese.
+* Tim Hermans: A bug report.
+* Joe Francis: A suggestion.
+* Tiago Fernandes: Bug reports.
