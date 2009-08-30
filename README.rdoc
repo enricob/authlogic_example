@@ -6,19 +6,22 @@ This branch implements LDAP pass-through authentication using {ActiveLdap}[http:
 
 1. This branch includes a migration to remove the +crypted_password+ and +password_salt+ columns from the users table because
    the user's credentials are now being validated by the LDAP.
+   
 2. The user views can no longer be used to edit the user's login and password. The credentials should be changed in the
    LDAP instead. However, the views have been left alone; they just don't work.
+   
 3. A particular LDAP schema is assumed, which is as below:
 
-  * <tt>dc=example,dc=com</tt> (domain)
-    * <tt>dc=dev</tt> (domain, differs by environment)
-      * <tt>o=users</tt> (organization)
-        * <tt>uid=user1</tt> (inetOrgPerson)
-        * <tt>uid=user2</tt> (inetOrgPerson)
+      * <tt>dc=example,dc=com</tt> (domain)
+        * <tt>dc=dev</tt> (domain, differs by environment)
+          * <tt>o=users</tt> (organization)
+            * <tt>uid=user1</tt> (inetOrgPerson)
+            * <tt>uid=user2</tt> (inetOrgPerson)
    
-   The +LdapUser+ class encapsulates LDAP user entries and can be changed to match your own schema (see the ActiveLdap docs).
+4. The +LdapUser+ class encapsulates LDAP user entries and can be changed to match your own schema (see the ActiveLdap docs).
    Also see the +ldap.yml.example+ file to configure your domain and users prefix.
-4. ruby-net-ldap 0.0.5 (built from GitHub) is used because 0.0.4 from RubyForge has a bug which prevents DN's from being used
+
+5. ruby-net-ldap 0.0.5 (built from GitHub) is used because 0.0.4 from RubyForge has a bug which prevents DN's from being used
    as attributes in an LDAP search.
 
 For more information on the app itself please see the {master branch}[http://github.com/enricob/authlogic_example/tree/master]
