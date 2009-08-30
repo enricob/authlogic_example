@@ -19,7 +19,7 @@ This branch implements LDAP pass-through authentication using {ActiveLdap}[http:
             uid=user2 (inetOrgPerson)
    
 4. The +LdapUser+ class encapsulates LDAP user entries and can be changed to match your own schema (see the ActiveLdap docs).
-   Also see the +ldap.yml.example+ file to configure your domain and users prefix.
+   Also see the <tt>ldap.yml.example</tt> file to configure your domain and users prefix.
 
 5. ruby-net-ldap 0.0.5 (built from GitHub) is used because 0.0.4 from RubyForge has a bug which prevents DN's from being used
    as attributes in an LDAP search.
