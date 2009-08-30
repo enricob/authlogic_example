@@ -12,11 +12,11 @@ This branch implements LDAP pass-through authentication using {ActiveLdap}[http:
    
 3. A particular LDAP schema is assumed, which is as below:
 
-      * <tt>dc=example,dc=com</tt> (domain)
-        * <tt>dc=dev</tt> (domain, differs by environment)
-          * <tt>o=users</tt> (organization)
-            * <tt>uid=user1</tt> (inetOrgPerson)
-            * <tt>uid=user2</tt> (inetOrgPerson)
+      dc=example,dc=com (domain)
+        dc=dev (domain, differs by environment)
+          o=users (organization)
+            uid=user1 (inetOrgPerson)
+            uid=user2 (inetOrgPerson)
    
 4. The +LdapUser+ class encapsulates LDAP user entries and can be changed to match your own schema (see the ActiveLdap docs).
    Also see the +ldap.yml.example+ file to configure your domain and users prefix.
