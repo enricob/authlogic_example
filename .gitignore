@@ -3,6 +3,7 @@ config/initializers/action_mailer_settings.rb
 config/deploy.rb
 db/schema.rb
 config/database.yml
+config/ldap.yml
 config/locomotive.yml
 config/mongrel_cluster.yml
 config/thin.yml

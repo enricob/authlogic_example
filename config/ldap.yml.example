@@ -1,0 +1,19 @@
+# See ActiveLdap documentation for more information on this file
+
+development:
+  host: 127.0.0.1
+  base: dc=dev,dc=example,dc=com
+  bind_dn: cn=Manager,dc=dev,dc=example,dc=com
+  password: secret
+
+test:
+  host: 127.0.0.1
+  base: dc=test,dc=example,dc=com
+  bind_dn: cn=Manager,dc=example,dc=com
+  password: secret
+
+production:
+  host: 127.0.0.1
+  base: dc=prod,dc=example,dc=com
+  bind_dn: cn=Manager,dc=example,dc=com
+  password: secret
