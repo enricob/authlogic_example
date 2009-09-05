@@ -1,27 +1,25 @@
-= LDAP Pass-through Authentication with Authlogic and ActiveLdap
+= LDAP-based Role-Based Access Control with ActiveLdap and declarative_authorization
 
-This branch implements LDAP pass-through authentication using {ActiveLdap}[http://rubyforge.org/projects/ruby-activeldap/].
+This branch extends the {with-activeldap}[http://github.com/enricob/authlogic_example/tree/with-activeldap] branch to
+implement role-based access control where the user's roles are determined by the LDAP groups they belong to.
+
+Most of the views now work; they serve as a demonstration of how access to the controller actions can be restricted based
+on LDAP group membership. Users in the "super_admin" group can view and edit the accounts of all users and users with no
+roles can view all accounts but only edit their own.
 
 == Notes
-
-1. This branch includes a migration to remove the +crypted_password+ and +password_salt+ columns from the users table because
-   the user's credentials are now being validated by the LDAP.
    
-2. The user views can no longer be used to edit the user's login and password. The credentials should be changed in the
-   LDAP instead. However, the views have been left alone; they just don't work.
-   
-3. A particular LDAP schema is assumed, which is as below:
+1. A particular LDAP schema is assumed, which is as below:
 
       dc=example,dc=com (domain)
         dc=dev (domain, differs by environment)
           o=users (organization)
             uid=user1 (inetOrgPerson)
             uid=user2 (inetOrgPerson)
-   
-4. The +LdapUser+ class encapsulates LDAP user entries and can be changed to match your own schema (see the ActiveLdap docs).
-   Also see the <tt>ldap.yml.example</tt> file to configure your domain and users prefix.
-
-5. ruby-net-ldap 0.0.5 (built from GitHub) is used because 0.0.4 from RubyForge has a bug which prevents DN's from being used
-   as attributes in an LDAP search.
+            ou=groups
+              cn=super_admin (groupOfNames)
+ 
+2. I will soon be writing a blog post which fully explains how <tt>LdapUser</tt> and <tt>LdapGroup</tt> are associated
+with each other. For now, refer to the {ActiveLdap documentation}[http://ruby-activeldap.rubyforge.org/doc/].
 
 For more information on the app itself please see the {master branch}[http://github.com/enricob/authlogic_example/tree/master]
