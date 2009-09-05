@@ -30,6 +30,9 @@ Rails::Initializer.run do |config|
   # Net::LDAP and ActiveLdap (particular to 'with-ldap' branch)
   config.gem "net-ldap", :lib => false, :version => '>=0.0.5'
   config.gem "activeldap", :lib => "active_ldap", :version => '1.0.9'
+  
+  config.gem "stffn-declarative_authorization", :lib => "declarative_authorization",
+    :source => 'http://gems.github.com'
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
