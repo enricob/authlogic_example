@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
     LdapUser.find(self.login)
   end
   
+  def role_symbols
+    ldap_entry.groups.collect { |g| g.cn.to_sym }
+  end
+  
   # Tries to find a User first by looking into the database and then by
   # creating a User if there's an LDAP entry for the given login
   def self.find_or_create_from_ldap(login)
