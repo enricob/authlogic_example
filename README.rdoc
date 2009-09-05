@@ -21,4 +21,6 @@ roles can view all accounts but only edit their own.
  
 2. I will soon be writing a blog post which fully explains how <tt>LdapUser</tt> and <tt>LdapGroup</tt> are associated with each other. For now, refer to the {ActiveLdap documentation}[http://ruby-activeldap.rubyforge.org/doc/].
 
+3. There is a new DB migration in this branch which adds an "email" column to the users table. In this context, there's no sense in editing the user's login and password, so we need some piece of information to edit for the sake of demonstrating the difference between admins and regular users.
+
 For more information on the app itself please see the {master branch}[http://github.com/enricob/authlogic_example/tree/master]
