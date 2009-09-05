@@ -19,7 +19,6 @@ roles can view all accounts but only edit their own.
             ou=groups
               cn=super_admin (groupOfNames)
  
-2. I will soon be writing a blog post which fully explains how <tt>LdapUser</tt> and <tt>LdapGroup</tt> are associated
-with each other. For now, refer to the {ActiveLdap documentation}[http://ruby-activeldap.rubyforge.org/doc/].
+2. I will soon be writing a blog post which fully explains how <tt>LdapUser</tt> and <tt>LdapGroup</tt> are associated with each other. For now, refer to the {ActiveLdap documentation}[http://ruby-activeldap.rubyforge.org/doc/].
 
 For more information on the app itself please see the {master branch}[http://github.com/enricob/authlogic_example/tree/master]
