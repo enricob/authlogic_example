@@ -1,9 +1,14 @@
 <h1>Edit My Account</h1>
 
-<% form_for @user, :url => account_path do |f| %>
+<% form_for @user do |f| %>
   <%= f.error_messages %>
   <%= render :partial => "form", :object => f %>
   <%= f.submit "Update" %>
 <% end %>
 
-<br /><%= link_to "My Profile", account_path %>
+<br />
+<% if @user == current_user %>
+  <%= link_to "My Profile", account_path %>
+<% else %>
+  <%= link_to "Back to User List", users_path %>
+<% end %>

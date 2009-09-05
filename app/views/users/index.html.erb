@@ -1,0 +1,24 @@
+<table>
+  <thead>
+    <td>Login</td>
+    <td>E-mail</td>
+    <td>Last Login</td>
+    <td>Last Request</td>
+    <td></td>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= h user.login %></td>
+        <td><%= h user.email %></td>
+        <td><%= h user.last_login_at %></td>
+        <td><%= h user.last_request_at %></td>
+        <td>
+          <% debugger %>
+          <%= link_to "Show", user_path(user) %>
+          <%= link_to "Edit", edit_user_path(user) if permitted_to?(:update, user) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
